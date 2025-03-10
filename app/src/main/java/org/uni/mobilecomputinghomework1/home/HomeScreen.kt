@@ -1,80 +1,3 @@
-//package org.uni.mobilecomputinghomework1.home
-//
-//import androidx.compose.foundation.background
-//import androidx.compose.foundation.layout.Box
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.foundation.layout.padding
-//import androidx.compose.foundation.layout.size
-//import androidx.compose.foundation.lazy.LazyColumn
-//import androidx.compose.foundation.lazy.items
-//import androidx.compose.material.icons.Icons
-//import androidx.compose.material.icons.filled.Add
-//import androidx.compose.material3.FloatingActionButton
-//import androidx.compose.material3.Icon
-//import androidx.compose.material3.Scaffold
-//import androidx.compose.runtime.Composable
-//import androidx.compose.runtime.collectAsState
-//import androidx.compose.runtime.getValue
-//import androidx.compose.ui.Modifier
-//import androidx.compose.ui.res.stringResource
-//import androidx.compose.ui.unit.dp
-//import androidx.hilt.navigation.compose.hiltViewModel
-//import androidx.navigation.NavController
-//import org.uni.mobilecomputinghomework1.R
-//import org.uni.mobilecomputinghomework1.Screens
-//import org.uni.mobilecomputinghomework1.ui.theme.CoffeeCream
-//import org.uni.mobilecomputinghomework1.ui.theme.EspressoBlack
-//import org.uni.mobilecomputinghomework1.ui.theme.LatteBrown
-//import org.uni.mobilecomputinghomework1.ui.theme.Caramel
-//
-//
-//@Composable
-//fun HomeScreen(
-//    navController: NavController,
-//    viewModel: HomeViewModel = hiltViewModel()
-//) {
-//    val foodList by viewModel.foodList.collectAsState()
-//
-//    Scaffold(
-//        floatingActionButton = {
-//            FloatingActionButton(
-//                containerColor = Caramel,
-//                contentColor = EspressoBlack,
-//                modifier = Modifier.size(64.dp),
-//                onClick = { navController.navigate(Screens.AddFood.route) }
-//            ) {
-//                Icon(
-//                    imageVector = Icons.Default.Add,
-//                    contentDescription = stringResource(R.string.label_add)
-//                )
-//            }
-//        }
-//    ) { paddingValues ->
-//        Box(
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .background(CoffeeCream) // Set background color
-//                .padding(paddingValues) // Avoid overlap with Scaffold padding
-//        ) {
-//            LazyColumn(
-//                modifier = Modifier.fillMaxSize()
-//            ) {
-//                items(foodList) { food ->
-//                    FoodItem(
-//                        food = food,
-//                        navController = navController,
-//                    )
-//                }
-//            }
-//        }
-//    }
-//}
-
-
-
-
-
-
 package org.uni.mobilecomputinghomework1.home
 
 import androidx.compose.foundation.background
@@ -85,6 +8,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -155,6 +81,17 @@ fun HomeScreen(
                     )
                 }
             }
+
+            // Add the button below the LazyColumn
+            Button(
+                onClick = { navController.navigate(Screens.Camera.route) },
+                modifier = Modifier
+                    .padding(16.dp) // Adjust padding as needed
+                    .align(Alignment.BottomCenter) // Align button to the bottom center
+            ) {
+                Text("Open Camera")
+            }
         }
     }
 }
+
