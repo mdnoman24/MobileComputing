@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Coffe Shop Menu</string>
+    <string name="label_next">Next</string>
+    <string name="label_home">Home</string>
+    <string name="label_previous">Previous</string>
+    <string name="label_add">Add</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_tap_to_pick_image">Tap to pick image</string>
+    <string name="label_loaded_image">Loaded Image</string>
+    <string name="label_enter_image_url">Enter Image URL</string>
+    <string name="label_food_name">Food Name</string>
+    <string name="label_food_description">Food Description</string>
+</resources>
