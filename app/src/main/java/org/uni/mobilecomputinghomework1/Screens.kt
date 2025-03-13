@@ -11,6 +11,8 @@ sealed class Screens(val route: String) {
 
     data object AddFood : Screens("AddFood")
 
+    data object map : Screens("MapScreen")
+
     // Added Camera Screen
     data object Camera : Screens("CameraScreen")
 }

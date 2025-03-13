@@ -1,5 +1,6 @@
 package org.uni.mobilecomputinghomework1.home
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -25,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import org.uni.mobilecomputinghomework1.R
@@ -43,8 +45,8 @@ fun HomeScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                containerColor = Caramel,
-                contentColor = EspressoBlack,
+                containerColor = Color(0xFF90EE90),
+                contentColor = Color(0xFF006400),
                 modifier = Modifier.size(64.dp),
                 onClick = { navController.navigate(Screens.AddFood.route) }
             ) {
@@ -68,7 +70,7 @@ fun HomeScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(CoffeeCream) // Set background color
+                .background(Color(0xFF708090)) // Set background color
                 .padding(paddingValues) // Avoid overlap with Scaffold padding
         ) {
             LazyColumn(
@@ -82,6 +84,7 @@ fun HomeScreen(
                 }
             }
 
+
             // Add the button below the LazyColumn
             Button(
                 onClick = { navController.navigate(Screens.Camera.route) },
@@ -91,6 +94,19 @@ fun HomeScreen(
             ) {
                 Text("Open Camera")
             }
+
+//            val context = LocalContext.current
+//            Box(
+//                modifier = Modifier
+//                    .padding(16.dp) // Adjust padding as needed
+//                    .align(Alignment.BottomEnd) // Align button to the bottom center
+//            ) {
+//                Button(onClick = {
+//                    navController.navigate("map")
+//                }) {
+//                    Text(text = "Open Map")
+//                }
+//            }
         }
     }
 }

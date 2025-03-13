@@ -54,26 +54,17 @@ fun FoodDetailScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(CoffeeCream), // Light cream background
+            .background(Color(0xFFCCFFCC)), // Light green background
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = food.value?.name ?: "food",
-            fontWeight = FontWeight.Bold,
-            style = TextStyle(
-                fontSize = 40.sp,
-                textDecoration = TextDecoration.Underline,
-                color = EspressoBlack // Dark brown text
-            )
-        )
-        Spacer(modifier = Modifier.height(32.dp))
+
         AsyncImage(
             model = food.value?.imagePath,
             modifier = Modifier
-                .size(212.dp)
-                .clip(RoundedCornerShape(48.dp))
-                .border(width = 2.dp, color = LatteBrown, shape = RoundedCornerShape(48.dp)), // Warm brown border
+                .size(299.dp)
+                .clip(RoundedCornerShape(1.dp))
+                .border(width = 2.dp, color = LatteBrown, shape = RoundedCornerShape(1.dp)), // Warm brown border
             contentScale = ContentScale.Crop,
             contentDescription = "food image"
         )
@@ -84,66 +75,21 @@ fun FoodDetailScreen(
                 .padding(horizontal = 40.dp),
             horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
+
+            Spacer(modifier = Modifier.height(12.dp))
             Button(
-                modifier = Modifier.weight(1f),
                 colors = ButtonColors(
                     containerColor = LatteBrown, // Warm brown button
                     contentColor = EspressoBlack, // White text
                     disabledContentColor = EspressoBlack,
                     disabledContainerColor = LatteBrown
                 ), onClick = {
-                    val previousFoodId = if (foodId > 1) foodId - 1 else maxId!!
-                    navController.navigate(Screens.Food.createRoute(id = previousFoodId)) {
-                        popUpTo(Screens.Food.route.replace("{foodId}", "$foodId")) {
-                            inclusive = true
-                        }
-                    }
+                    navController.popBackStack(Screens.Home.route, inclusive = false)
                 }
             ) {
-                Text(stringResource(R.string.label_previous))
+                Text(stringResource(R.string.label_home))
             }
-            Button(
-                modifier = Modifier.weight(1f),
-                colors = ButtonColors(
-                    containerColor = LatteBrown, // Warm brown button
-                    contentColor = EspressoBlack, // White text
-                    disabledContentColor = EspressoBlack,
-                    disabledContainerColor = LatteBrown
-                ), onClick = {
-                    val nextFoodId = if (foodId < maxId!!) foodId + 1 else 1
-                    navController.navigate(Screens.Food.createRoute(id = nextFoodId)) {
-                        popUpTo(Screens.Food.route.replace("{foodId}", "$foodId")) {
-                            inclusive = true
-                        }
-                    }
-                }
-            ) {
-                Text(stringResource(R.string.label_next))
-            }
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-        Button(
-            colors = ButtonColors(
-                containerColor = LatteBrown, // Warm brown button
-                contentColor = EspressoBlack, // White text
-                disabledContentColor = EspressoBlack,
-                disabledContainerColor = LatteBrown
-            ), onClick = {
-                navController.popBackStack(Screens.Home.route, inclusive = false)
-            }
-        ) {
-            Text(stringResource(R.string.label_home))
         }
     }
 }
 
-@Preview
-@Composable
-fun FoodDetailScreenPreview() {
-    MobileComputingHomework1Theme {
-        FoodDetailScreen(
-            foodId = 6,
-            navController = rememberNavController()
-        )
-    }
-}

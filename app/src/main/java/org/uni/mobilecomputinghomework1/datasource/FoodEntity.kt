@@ -8,5 +8,6 @@ data class Food(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val imagePath: String,
     val name: String,
-    val description: String
+    val description: String,
+
 )

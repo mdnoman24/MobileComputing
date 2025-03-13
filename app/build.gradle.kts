@@ -64,6 +64,13 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation ("com.google.maps.android:maps-compose:2.11.4")
+    implementation ("androidx.compose.material3:material3:1.2.0")
+    implementation ("com.airbnb.android:lottie-compose:6.1.0")
+
+
 
     ksp(libs.room.compiler)
     ksp(libs.hilt.compiler)

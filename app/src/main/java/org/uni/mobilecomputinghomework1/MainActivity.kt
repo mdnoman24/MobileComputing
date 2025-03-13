@@ -22,10 +22,12 @@ class MainActivity : ComponentActivity() {
                     requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 0)
                 }
                 val navController = rememberNavController()
+
                 Navigation(navController)
                 if (intent?.action == "OPEN_ADD_FOOD") {
                     navController.navigate(Screens.AddFood.route)
                 }
+
             }
         }
         Intent(this, ShakeDetectionService::class.java).also { intent ->

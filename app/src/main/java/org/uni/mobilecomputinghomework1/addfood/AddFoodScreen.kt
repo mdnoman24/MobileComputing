@@ -50,6 +50,7 @@ import org.uni.mobilecomputinghomework1.ui.theme.Gold
 import org.uni.mobilecomputinghomework1.ui.theme.Caramel
 import org.uni.mobilecomputinghomework1.ui.theme.EspressoBlack
 import org.uni.mobilecomputinghomework1.ui.theme.LatteBrown
+import org.uni.mobilecomputinghomework1.ui.theme.DarkRoast
 
 
 @Composable
@@ -78,7 +79,7 @@ fun AddFoodScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(CoffeeCream) // Set background color
+            .background(color =Color(0xFF87CEEB)) // Light green color // Set background color
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -89,7 +90,7 @@ fun AddFoodScreen(
             Box(
                 modifier = Modifier
                     .size(160.dp)
-                    .background(color = Caramel, shape = RoundedCornerShape(16.dp))
+                    .background(color = Color(0xFFFFE4E1), shape = RoundedCornerShape(16.dp))
                     .clickable { imagePickerLauncher.launch("image/*") },
                 contentAlignment = Alignment.Center
             ) {
@@ -169,10 +170,10 @@ fun AddFoodScreen(
                 Button(
                     modifier = Modifier.weight(1f),
                     colors = ButtonColors(
-                        containerColor = Caramel,
-                        contentColor = EspressoBlack,
-                        disabledContentColor = EspressoBlack,
-                        disabledContainerColor = Caramel
+                        containerColor = Color(0xFF003366),
+                        contentColor = Color(0xFFFCFFFD),
+                        disabledContentColor = Color(0xFFFCFFFD),
+                        disabledContainerColor = Color(0xFF003366)
                     ),
                     onClick = {
                         navController.navigateUp()
@@ -184,10 +185,10 @@ fun AddFoodScreen(
                     modifier = Modifier.weight(1f),
                     enabled = foodName.isNotBlank() && foodDescription.isNotBlank(),
                     colors = ButtonColors(
-                        containerColor = Caramel,
-                        contentColor = EspressoBlack,
-                        disabledContentColor = EspressoBlack,
-                        disabledContainerColor = Caramel
+                        containerColor = Color(0xFF003366),
+                        contentColor = Color(0xFFFCFFFD),
+                        disabledContentColor = Color(0xFFFCFFFD),
+                        disabledContainerColor = Color(0xFF003366)
                     ),
                     onClick = {
                         viewModel.addFood(

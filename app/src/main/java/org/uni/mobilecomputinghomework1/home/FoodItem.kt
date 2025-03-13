@@ -42,12 +42,12 @@ fun FoodItem(navController: NavController, food: Food) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .padding(10.dp)
-            .clip(RoundedCornerShape(20.dp))
+            .padding(5.dp)
+            .clip(RoundedCornerShape(5.dp))
             .fillMaxWidth()
-            .background(Caramel)
+            .background(Color(0xFFE6E6FA))
             .border(
-                width = 1.dp, color = Color.DarkGray, shape = RoundedCornerShape(20.dp)
+                width = 1.dp, color = Color.DarkGray, shape = RoundedCornerShape(5.dp)
             )
             .clickable {
                 navController.navigate(Screens.Food.createRoute(id = food.id))
@@ -58,7 +58,7 @@ fun FoodItem(navController: NavController, food: Food) {
             modifier = Modifier
                 .size(72.dp)
                 .padding(start = 7.dp)
-                .clip(RoundedCornerShape(10.dp))
+                .clip(RoundedCornerShape(5.dp))
                 .border(width = 1.dp, color = LatteBrown, shape = RoundedCornerShape(10.dp)),
             contentDescription = food.name,
             contentScale = ContentScale.Crop
@@ -68,7 +68,7 @@ fun FoodItem(navController: NavController, food: Food) {
             modifier = Modifier
                 .padding(8.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(color = LatteBrown)
+                .background(color = Color(0xFFD3F2E8))
                 .fillMaxWidth()
         ) {
             Text(
